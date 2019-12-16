@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-
 <html>
   <head>
     <title>Calculadora inútil</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <form action="http://localhost:30080/calcular" method="POST">
+    <form>
       <p>
         <label for="primeiro_operando">Primeiro operando</label>
         <input name="primeiro_operando">
@@ -24,8 +24,26 @@
         </select>
       </p>
       <p>
-        <input type="submit" value="Calcular">
+        <input type="button" value="Calcular" click="calcular()">
+      </p>
+      <p>
+        <label for="resultado">Resultado</label>
+        <input name="resultado" />
       </p>
     </form>
+
+    <script>
+    function calcular() {
+        var pacote = {
+            "operando1": document.getElementsByName("operando1").value,
+            "operando2": document.getElementsByName("operando2").value,
+            "operador": document.getElementsByName("operador").value
+        }
+        axios.post('localhost:3000/calculadora', pacote)
+        .then(res => {
+            document.getElementsByName("resultado").value = res.body.resultado;
+        });
+    };
+    </script>
   </body>
 </html>
