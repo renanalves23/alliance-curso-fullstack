@@ -1,10 +1,10 @@
 {
-  "name": "curso-fulltstack-alliance-dia-1",
+  "name": "curso-fulltstack-alliance",
   "version": "1.0.0",
   "description": "Conteúdo do curos Fullstack Node.js + Vue.js da Alliance Consultoria",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node ./index.js",
+    "start": "nodemon --exec babel-node ./index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Renan Alves",
@@ -17,7 +17,9 @@
     "express": "^4.17.1",
     "markdown-it": "^10.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/renanalves23/alliance-curso-fullstack.git"

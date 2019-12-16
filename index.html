@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Calculadora inútil</title>
+  </head>
+  <body>
+    <form action="http://localhost:30080/calcular" method="POST">
+      <p>
+        <label for="primeiro_operando">Primeiro operando</label>
+        <input name="primeiro_operando">
+      </p>
+      <p>
+        <label for="segundo_operando">Segundo operando</label>
+        <input name="segundo_operando">
+      </p>
+      <p>
+        <label for="operador">Operador</label>
+        <select name="operador">
+          <option value="add">+</option>
+          <option value="minus">-</option>
+          <option value="mult">*</option>
+          <option value="div">/</option>
+        </select>
+      </p>
+      <p>
+        <input type="submit" value="Calcular">
+      </p>
+    </form>
+  </body>
+</html>
