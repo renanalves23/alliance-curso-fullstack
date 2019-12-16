@@ -1,9 +1,10 @@
 import { Router }  from 'express';
+import path from 'path';
 
 const router = Router();
 
 router.get('/', (req, res) => {
-    return res.send("Olá");
+    return res.sendfile(path.join(__dirname, 'index.html'));
 });
 
 router.post('/', (req, res) => {

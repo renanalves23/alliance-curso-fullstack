@@ -9,7 +9,9 @@ app.use('/calculadora', calculadora);
 app.get('/', (req, res) => {
     res.send('Hello World!');
   });  
+
+  app.get('/axios.js', (req, res) => res.sendFile(__dirname + '/axios.js'));
   
   app.listen(3000, () => 
-    console.log('Example app listening on port 3003!'),
+    console.log('Example app listening on port 3000!'),
   ); 
