@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     let payload = req.body;
     let sql = `insert into BICICLETAS(CODIGO, ATIVO) VALUES
-    ('${payload.codigo}', ${payload.ativo})
+    ('${payload.codigo}', '${payload.ativo}')
     `;
 
     const client = criaClient();
