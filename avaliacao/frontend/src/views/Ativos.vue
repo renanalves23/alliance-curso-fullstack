@@ -5,12 +5,13 @@
     <b-button v-b-modal.criaBicicleta>
        <font-awesome-icon icon="plus" /> <span>Adicionar</span>
     </b-button>
+    
     <b-table striped hover :items="bicicletas" :fields="fields">
-        <template slot="cell(ativo)" slot-scope="{ item: { ativo }}">
+        <!-- <template slot="cell(ativo)" slot-scope="{ item: { ativo }}">
             <font-awesome-icon
                 :icon="ativo === 'Y' ? 'check' : 'times'"
             />
-        </template>
+        </template> -->
         <template slot="cell(actionDelete)" slot-scope="{ item: { codigo }}">
             <b-button v-on:click="excluirBicicleta(codigo)">
                 <font-awesome-icon icon="trash" />
@@ -56,15 +57,19 @@ import FormBicicleta from '../components/FormBicicleta';
 import axios from 'axios';
 
 export default {
-    components: {FormBicicleta},
-    data: () => {
-        return {
-            bicicletaAtual: {
-                codigo: '',
-                ativo: '',
-                isNew: true
-            },
+    //formBicicleta
+        components: {FormBicicleta},
+        data: () => {
+            return {
+                bicicletaAtual: {
+                    codigo: '',
+                    ativo: '',
+                    isNew: true
+                },
+ //formBicicleta
+
             bicicletas: [],
+
             fields: [
                 {
                     key: 'codigo',
@@ -86,6 +91,7 @@ export default {
             ]
         }
     },
+
     methods: {
         //  beforeExcluiBicicleta(bicicleta) {
         //     this.bicicletaAtual = {

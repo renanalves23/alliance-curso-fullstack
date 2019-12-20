@@ -21,7 +21,7 @@
         <b-form-group
             id="input-codigo"
             label="Descrição"
-            label-for="txtCodigo"
+            label-for="txtDescricao"
             :disabled="!content.isNew"
         >
             <b-form-input
