@@ -68,12 +68,12 @@ export default {
             fields: [
                 {
                     key: 'codigo',
+                    label: 'Codigo'
+                },
+                {
+                    key: 'descricao',
                     label: 'Descrição'
                 },
-                // {
-                //     key: 'ativo',
-                //     label: ''
-                // },
                 
                 {
                     key: 'actionDelete',
@@ -128,7 +128,7 @@ export default {
             };
 
             try {
-                await axios.put(`http://localhost:3000/bicicletas/${this.bicicletaAtual.codigo}`, payload);
+                await axios.put(`http://localhost:3000/ativos/${this.bicicletaAtual.codigo}`, payload);
                 await this.carregaBicicletas();
             } catch(err) {
                 alert('erro ao atualizar a bicicleta');
@@ -136,7 +136,7 @@ export default {
         },
         async carregaBicicletas() {
             this.bicicletas.splice(0, this.bicicletas.length);
-            let dados = await axios.get('http://localhost:3000/bicicletas/');
+            let dados = await axios.get('http://localhost:3000/ativos/');
             this.bicicletas.push(...dados.data);
         },
         beforeNovaBicicleta() {
@@ -151,7 +151,7 @@ export default {
             };
 
             try {
-                await axios.post('http://localhost:3000/bicicletas/', payload);
+                await axios.post('http://localhost:3000/ativos/', payload);
                 await this.carregaBicicletas();
             } catch(err) {
                 alert('erro ao inserir a bicicleta');

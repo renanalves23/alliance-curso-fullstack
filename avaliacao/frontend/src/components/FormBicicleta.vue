@@ -4,7 +4,7 @@
             id="input-codigo"
             label="Código"
             label-for="txtCodigo"
-            description="Informe o código único da bicicleta"
+            description="Informe o código único do ativo"
             :disabled="!content.isNew"
         >
             <b-form-input
@@ -16,20 +16,27 @@
                 @input="handleInput"
                 :disabled="!content.isNew"/>
         </b-form-group>
+
+    <!-- campo da descrição -->
         <b-form-group
-            id="input-ativo"
-            label="Ativo"
-            label-for="chkAtivo"
-            description="Selecione se a bicicleta está disponível"
+            id="input-codigo"
+            label="Descrição"
+            label-for="txtCodigo"
+            :disabled="!content.isNew"
         >
-            <b-form-checkbox
-                id="chkAtivo"
-                v-model="content.ativo"
+            <b-form-input
+                id="txtCodigo"
+                v-model="content.descricao"
+                type="text"
                 required
-                switch
-                @input="handleInput"/>
+                placeholder="Digite a Descrição"
+                @input="handleInput"
+                :disabled="!content.isNew"/>
         </b-form-group>
-    </b-form>
+<!-- // campo da descrição -->     
+
+
+        </b-form>
 </template>
 
 <script>
@@ -39,7 +46,7 @@ export default {
         return {
             content: {
                 codigo: this.value.codigo,
-                ativo: (this.value.ativo ==='Y'),
+                // ativo: (this.value.ativo ==='Y'),
                 isNew: this.value.isNew
             }
 
@@ -49,7 +56,8 @@ export default {
         handleInput () {
             let retorno = {
                 codigo: this.content.codigo,
-                ativo: this.content.ativo ? 'Y' : 'N',
+                descricao: this.content.descricao,
+                // ativo: this.content.ativo ? 'Y' : 'N',
                 isNew: this.content.isNew
             };
             this.$emit('input', retorno);
