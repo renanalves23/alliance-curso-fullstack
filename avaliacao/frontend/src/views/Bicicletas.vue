@@ -22,27 +22,30 @@
             </b-button>
         </template>
     </b-table>
+
     <b-modal id="criaBicicleta"
-        title="Nova bicicleta"
+        title="Novo Ativo"
         ok-title="Salvar"
         cancel-title="Cancelar"
-        @show="beforeNovaBicicleta"
+        @show="beforeNovaBicicleta"  
         @ok="saveNovaBicicleta">
         <FormBicicleta v-model="bicicletaAtual"/>
     </b-modal>
+
     <b-modal id="editaBicicleta"
-        :title="'Alterar a bicileta - ' + bicicletaAtual.codigo"
+        :title="'Alterar o Ativo - ' + bicicletaAtual.codigo"
         ok-title="Alterar"
         cancel-title="Cancelar"
         @ok="editarBicicleta">
         <FormBicicleta v-model="bicicletaAtual"/>
     </b-modal>
+
     <b-modal id="excluirBicicleta"
         :title="'Exclui a bicileta - ' + bicicletaAtual.codigo"
         ok-title="Excluir"
         cancel-title="Cancelar"
         @ok="excluirBicicleta">
-        <!-- <FormBicicleta v-model="bicicletaAtual"/> -->
+        <FormBicicleta v-model="bicicletaAtual"/>
     </b-modal>
 
   </div>
@@ -89,7 +92,8 @@ export default {
         //         codigo: bicicleta.codigo,
         //         ativo: bicicleta.ativo,
         //         isNew: false
-        //     }
+        //      }
+        //     },
         //     this.$root.$emit('bv::show::modal', 'excluirBicicleta');
         // },
         //        async excluirBicicleta(codigo) {
@@ -98,6 +102,17 @@ export default {
         //             this.bicicletas.pop();                                         
                 
         //       },
+
+//nao funcionando está excluindo dodos os dados
+        //  async excluirBicicleta() {
+        //     this.bicicletas.splice(0, this.bicicletas.length);
+        //     let dados = await axios.delete(`http://localhost:3000/bicicletas/${this.bicicletaAtual.codigo}`);
+        //     this.bicicletas.pop(dados);
+        //      this.$root.$emit('bv::show::modal', 'excluirBicicleta');
+        // },
+
+//nao funcionando
+
         beforeEditaBicicleta(bicicleta) {
             this.bicicletaAtual = {
                 codigo: bicicleta.codigo,
