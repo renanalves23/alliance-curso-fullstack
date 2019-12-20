@@ -37,6 +37,13 @@
         @ok="editarBicicleta">
         <FormBicicleta v-model="bicicletaAtual"/>
     </b-modal>
+    <b-modal id="excluirBicicleta"
+        :title="'Exclui a bicileta - ' + bicicletaAtual.codigo"
+        ok-title="Excluir"
+        cancel-title="Cancelar"
+        @ok="excluirBicicleta">
+        <!-- <FormBicicleta v-model="bicicletaAtual"/> -->
+    </b-modal>
 
   </div>
 </template>
@@ -60,10 +67,10 @@ export default {
                     key: 'codigo',
                     label: 'Descrição'
                 },
-                {
-                    key: 'ativo',
-                    label: ''
-                },
+                // {
+                //     key: 'ativo',
+                //     label: ''
+                // },
                 
                 {
                     key: 'actionDelete',
@@ -77,14 +84,25 @@ export default {
         }
     },
     methods: {
-        excluirBicicleta(codigo) {
-            return codigo;
-        },
+        //  beforeExcluiBicicleta(bicicleta) {
+        //     this.bicicletaAtual = {
+        //         codigo: bicicleta.codigo,
+        //         ativo: bicicleta.ativo,
+        //         isNew: false
+        //     }
+        //     this.$root.$emit('bv::show::modal', 'excluirBicicleta');
+        // },
+        //        async excluirBicicleta(codigo) {
+        //            this.bicicletas.splice(0, this.bicicletas.length);
+        //             let dados = await axios.delete(`http://localhost:3000/bicicletas/${this.bicicletaAtual.codigo}`);
+        //             this.bicicletas.pop();                                         
+                
+        //       },
         beforeEditaBicicleta(bicicleta) {
             this.bicicletaAtual = {
                 codigo: bicicleta.codigo,
                 ativo: bicicleta.ativo,
-                isNew: false
+                isNew: true
             }
             this.$root.$emit('bv::show::modal', 'editaBicicleta');
         },
@@ -127,6 +145,7 @@ export default {
     },
     async mounted() {
         await this.carregaBicicletas();
+       // await this.carregaBicicletas.pop();
     }
 }
 </script>
