@@ -12,7 +12,7 @@
                 v-model="content.codigo"
                 type="text"
                 required
-                placeholder="código da bicicleta"
+                placeholder="código do ativo"
                 @input="handleInput"
                 :disabled="!content.isNew"/>
         </b-form-group>

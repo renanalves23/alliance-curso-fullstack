@@ -12,5 +12,5 @@ app.use('/usuarios', Usuarios);
 app.use('/bicicletas', Bicicletas)
 
 app.listen(3000, () =>
-    console.log('Servidor rodando na porta 30000!'),
+    console.log('Servidor rodando na porta 3000!'),
 );
